@@ -1,0 +1,7 @@
+{
+  "name": "BoxFactoryFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
