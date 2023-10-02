@@ -1,3 +1,38 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-content style="position: absolute; top: 0; left: 15%; width: 70%;">
+    <ion-item>
+      <ion-searchbar
+        [formGroup]="searchBoxForm"
+        data-testid="searchbar"
+        placeholder="Enter your search here"
+        (ionInput)="search($event)"
+        showCancelButton="focus"
+        (ionCancel)="clearSearchInput()"
+      >
+      </ion-searchbar>
+    </ion-item>
+    <ion-list>
+      <ion-card [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems">
+        <ion-toolbar>
+          <ion-title>{{boxItem.name}}</ion-title>
+        </ion-toolbar>
+        <ion-buttons>
+          <ion-button data-testid="delete-button" (click)="deleteBox(boxItem.boxId)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="updateBox(boxItem.boxId)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-card-subtitle>{{boxItem.description}}</ion-card-subtitle>
+        <img style="max-height: 200px" [src]="boxItem.imgUrl">
+      </ion-card>
+    </ion-list>
+
+    <ion-fab>
+      <ion-fab-button data-testid="create-button" (click)="openModal()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
 </ion-app>
