@@ -21,4 +21,24 @@ public class Repository
     {
         throw new NotImplementedException();
     }
+
+    public Box UpdateBox(Box box, int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteBox(int boxId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<Box> searchBox(string searchTerm)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Box getBox(int boxId)
+    {
+        throw new NotImplementedException();
+    }
 }

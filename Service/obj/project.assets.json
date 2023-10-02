@@ -170,19 +170,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Peder\\.nuget\\packages\\": {}
+    "C:\\Users\\Bruger\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Service\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Service\\Service.csproj",
-      "packagesPath": "C:\\Users\\Peder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Service\\obj\\",
+      "projectPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Service\\Service.csproj",
+      "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Peder\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -194,8 +194,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
