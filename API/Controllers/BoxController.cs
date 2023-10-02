@@ -14,6 +14,9 @@ public class BoxController : ControllerBase
         _service = service;
     }
 
+    /**
+     * A method used to get all boxes
+     */
     [HttpGet]
     [Route("/api/catalogue")]
     public IEnumerable<Box> GetBoxes()
@@ -21,6 +24,9 @@ public class BoxController : ControllerBase
         return _service.GetAllBoxes();
     }
 
+    /**
+     * A method used to create boxes
+     */
     [HttpPost]
     [Route("/api/boxes")]
     public Box PostBox([FromBody] Box box)
@@ -28,6 +34,9 @@ public class BoxController : ControllerBase
         return _service.PostBox(box);
     }
 
+    /**
+     * A method used to update boxes
+     */
     [HttpPut]
     [Route("/api/boxes/{boxId}")]
     public Box UpdateBox([FromBody] Box box, [FromRoute] int boxId)
@@ -35,13 +44,19 @@ public class BoxController : ControllerBase
         return _service.UpdateBox(box, boxId);
     }
 
+    /**
+     * A method used to delete boxes
+     */
     [HttpDelete]
-    [Route("/api/deleteBox/{boxId}")]
+    [Route("/api/deletebox/{boxId}")]
     public void DeleteBox([FromRoute] int boxId)
     {
         _service.DeleteBox(boxId);
     }
 
+    /**
+     * A method used to search for boxes
+     */
     [HttpGet]
     [Route("/api/boxes")]
     public IEnumerable<Box> searchBox([FromQuery] string searchTerm)
@@ -49,6 +64,9 @@ public class BoxController : ControllerBase
         return _service.SearchBox(searchTerm);
     }
 
+    /**
+     * A method used to search for a specific box
+     */
     [HttpGet]
     [Route("/api/boxes/{boxId}")]
     public Box GetBox([FromRoute] int boxId)
