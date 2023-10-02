@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "5tv84tZtSGeJGMQ4DWVKTIXpmXt/6JdrIklKtHiGxLEOAbRHJQIbtj/9HIDJ1qllNJDnJj2SKRjPkQ+qULHBvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bruger\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\dapper\\2.1.4\\dapper.2.1.4.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\fluentassertions\\7.0.0-alpha.1\\fluentassertions.7.0.0-alpha.1.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.codecoverage\\17.8.0-preview-23424-02\\microsoft.codecoverage.17.8.0-preview-23424-02.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0-preview-23424-02\\microsoft.net.test.sdk.17.8.0-preview-23424-02.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0-preview-23424-02\\microsoft.testplatform.objectmodel.17.8.0-preview-23424-02.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\microsoft.testplatform.testhost\\17.8.0-preview-23424-02\\microsoft.testplatform.testhost.17.8.0-preview-23424-02.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\npgsql\\8.0.0-preview.4\\npgsql.8.0.0-preview.4.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\nuget.frameworks\\6.5.0\\nuget.frameworks.6.5.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\nunit.analyzers\\3.8.0\\nunit.analyzers.3.8.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\nunit3testadapter\\4.5.0\\nunit3testadapter.4.5.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\serilog\\3.1.0-dev-02064\\serilog.3.1.0-dev-02064.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
+    "C:\\Users\\Bruger\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
