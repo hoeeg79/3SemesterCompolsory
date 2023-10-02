@@ -65,13 +65,13 @@ export class AppComponent {
     const modal = await this.modalController.create({
       component: UpdateboxComponent
     });
-    modal.present;
+    modal.present();
   }
 
-  async openModal() {
+  async createBox() {
     const modal = await this.modalController.create({
       component: CreateboxComponent
     });
-    modal.present;
+    modal.present();
   }
 }
