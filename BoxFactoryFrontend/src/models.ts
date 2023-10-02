@@ -5,5 +5,5 @@ export class BoxItem {
   description?: string;
   price?: number;
   materials?: string;
-  imgUrl?: string;
+  boxImgUrl?: string;
 }

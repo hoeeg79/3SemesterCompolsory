@@ -7,6 +7,8 @@ import {State} from "../state";
 import {firstValueFrom} from "rxjs";
 import {BoxItem} from "../models";
 import {environment} from "../environments/environment.prod";
+import {CreateboxComponent} from "./createbox.component";
+import {UpdateboxComponent} from "./updatebox.component";
 
 @Component({
   selector: 'app-root',
@@ -60,9 +62,16 @@ export class AppComponent {
   }
 
   async updateBox(boxId: number | undefined) {
-    try {
+    const modal = await this.modalController.create({
+      component: UpdateboxComponent
+    });
+    modal.present;
+  }
 
-    }
-
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: CreateboxComponent
+    });
+    modal.present;
   }
 }

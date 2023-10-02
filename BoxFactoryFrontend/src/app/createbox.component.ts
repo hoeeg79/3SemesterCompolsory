@@ -1,9 +1,11 @@
 import {Component} from "@angular/core";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ModalController, ToastController} from "@ionic/angular";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {State} from "../state";
 import {BoxItem} from "../models";
+import {environment} from "../environments/environment.prod";
+import {firstValueFrom} from "rxjs";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class CreateboxComponent {
     name: ['', Validators.required],
     size: ['', Validators.required],
     description: ['', Validators.required],
-    price: ['', Validators.required],
+    price: [undefined, [Validators.required, Validators.min(0)]],
     materials: ['', Validators.required],
     boxImgUrl: ['', Validators.required]
   })
@@ -28,12 +30,15 @@ export class CreateboxComponent {
 
  async submit() {
     try {
-      let dto = this.createNewBoxForm.getRawValue() as BoxItem;
-      const observale
-
+      let dto = this.createNewBoxForm.getRawValue();
+      const observable = this.http.post<BoxItem>(environment.baseUrl + '/api/boxes/', dto);
+      const response = await firstValueFrom(observable);
+      this.state.boxItems.push(response);
+      this.modalController.dismiss();
     } catch (e) {
-
+        if (e instanceof HttpErrorResponse) {
+            this.toastController.create({message: e.error.messageToClient}).then(res => res.present)
+        };
+      }
     }
-
-  }
 }
