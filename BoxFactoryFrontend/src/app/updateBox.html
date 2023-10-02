@@ -1,0 +1,43 @@
+<ion-list>
+    <ion-item>
+        <ion-input autofocus="her" [formControl]="updateBoxForm.controls.name" data-testid="name-input"
+                   label="insert name for box please">
+
+        </ion-input>
+        <div *ngIf="!updateBoxForm.controls.name.valid" > Name title must be 4 characters or more</div>
+    </ion-item>
+    <ion-item>
+        <ion-input [formControl]="updateBoxForm.controls.size" data-testid="size-input"
+                   label="insert size for the box please">
+
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [formControl]="updateBoxForm.controls.description" data-testid="description-input"
+                   label="insert box description please">
+
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [formControl]="updateBoxForm.controls.boxImgUrl" data-testid="image-url"
+                   label="insert cover-image-url for box please">
+
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [formControl]="updateBoxForm.controls.price" type="number" data-testid="price-input"
+                   label="insert box price please">
+
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [formControl]="updateBoxForm.controls.materials" data-testid="material-input"
+                   label="insert box material please">
+
+        </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-button [disabled]="updateBoxForm.invalid" (click)="submit()"
+                    data-testid="submit-button">send</ion-button>
+    </ion-item>
+</ion-list>
