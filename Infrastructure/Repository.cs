@@ -1,4 +1,5 @@
-﻿using Infrastructure.Models;
+﻿using Dapper;
+using Infrastructure.Models;
 using Npgsql;
 
 namespace Infrastructure;
@@ -14,31 +15,66 @@ public class Repository
 
     public IEnumerable<Box> GetAllBoxes()
     {
-        throw new NotImplementedException();
+        var sql = $@"SELECT name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImg, material FROM boxes.box;";
+        using (var conn = _datasource.OpenConnection())
+        {
+            return conn.Query<Box>(sql);
+        }
     }
 
     public Box PostBox(Box box)
     {
-        throw new NotImplementedException();
+        var sql = $@"INSERT INTO boxes.box (name, size, description, price, boxImg, material)
+            VALUES (@name, @size, @description, @price, @boxImg, @material) RETURNING *;";
+        using (var conn = _datasource.OpenConnection())
+        {
+            return conn.QueryFirst(sql, box);
+        }
     }
 
     public Box UpdateBox(Box box, int id)
     {
-        throw new NotImplementedException();
+        var sql = $@"UPDATE boxes.box SET name = @name, size = @size, description = @decription, price = @price,
+                     boxImg = @boxImg, material = @material WHERE boxid = @boxId RETURNING *;";
+        using (var conn = _datasource.OpenConnection())
+        {
+            return conn.QueryFirst<Box>(sql,
+                new { box.name, box.size, box.description, box.price, box.boxImage, box.material });
+        }
     }
 
     public void DeleteBox(int boxId)
     {
-        throw new NotImplementedException();
+        var sql = $@"DELETE FROM boxes.box WHERE boxid = @boxId";
+        using (var conn = _datasource.OpenConnection())
+        {
+            conn.Execute(sql, new { boxId });
+        }
     }
 
     public IEnumerable<Box> searchBox(string searchTerm)
     {
-        throw new NotImplementedException();
+        var sql = $@"SELECT * FROM boxes.box WHERE
+                            name LIKE '%' || @searchTerm || '%'
+                            OR size LIKE '%' || @searchTerm || '%'
+                            OR material LIKE '%' || @searchTerm || '%';";
+        if (searchTerm.Length >= 4)
+        {
+            using (var conn = _datasource.OpenConnection())
+            {
+                return conn.Query<Box>(sql, new { searchTerm });
+            }
+        }
+
+        throw new Exception("Search term not long enough.");
     }
 
     public Box getBox(int boxId)
     {
-        throw new NotImplementedException();
+        var sql = $@"SELECT * FROM boxes.box WHERE boxid = @boxId";
+        using (var conn = _datasource.OpenConnection())
+        {
+            return conn.QueryFirst<Box>(sql, new { boxId });
+        }
     }
 }
