@@ -15,12 +15,12 @@ import {firstValueFrom} from "rxjs";
 
 export class UpdateboxComponent {
     updateBoxForm = this.fb.group( {
-        name: ['', Validators.required],
-        size: ['', Validators.required],
-        description: ['', Validators.required],
-        price: [undefined, [Validators.required, Validators.min(0)]],
-        materials: ['', Validators.required],
-        boxImgUrl: ['', Validators.required]
+        name: [this.state.currentBox.name, Validators.required],
+        size: [this.state.currentBox.size, Validators.required],
+        description: [this.state.currentBox.description, Validators.required],
+        price: [this.state.currentBox.price, [Validators.required, Validators.min(0)]],
+        materials: [this.state.currentBox.materials, Validators.required],
+        boxImgUrl: [this.state.currentBox.boxImgUrl, Validators.required]
     })
 
 
