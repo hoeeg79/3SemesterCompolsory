@@ -1,0 +1,5 @@
+C:\Users\Peder\IdeaProjects\3SemesterCompolsory\Service\obj\Debug\net8.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Peder\IdeaProjects\3SemesterCompolsory\Service\obj\Debug\net8.0\Service.AssemblyInfoInputs.cache
+C:\Users\Peder\IdeaProjects\3SemesterCompolsory\Service\obj\Debug\net8.0\Service.AssemblyInfo.cs
+C:\Users\Peder\IdeaProjects\3SemesterCompolsory\Service\obj\Debug\net8.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\Peder\IdeaProjects\3SemesterCompolsory\Service\obj\Debug\net8.0\Service.sourcelink.json
