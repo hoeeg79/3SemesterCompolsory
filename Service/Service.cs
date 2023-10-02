@@ -30,8 +30,11 @@ public class Service
         {
             return _repository.PostBox(box);
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.InnerException);
+            Console.WriteLine(e.StackTrace);
             throw new Exception("Could not create box.");
         }
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj": {}
+    "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj": {
+    "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj",
+        "projectUniqueName": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj",
         "projectName": "BoxAPITests",
-        "projectPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\obj\\",
+        "projectPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\BoxAPITests.csproj",
+        "packagesPath": "C:\\Users\\Peder\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\BoxAPITests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Peder\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

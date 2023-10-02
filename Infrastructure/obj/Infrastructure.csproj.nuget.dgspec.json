@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Peder\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Peder\\IdeaProjects\\3SemesterCompolsory\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Peder\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

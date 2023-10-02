@@ -15,7 +15,7 @@ public class Repository
 
     public IEnumerable<Box> GetAllBoxes()
     {
-        var sql = $@"SELECT name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImg, material FROM boxes.box;";
+        var sql = $@"SELECT boxId, name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImage, material FROM boxes.box;";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.Query<Box>(sql);
@@ -24,22 +24,31 @@ public class Repository
 
     public Box PostBox(Box box)
     {
-        var sql = $@"INSERT INTO boxes.box (name, size, description, price, boxImg, material)
-            VALUES (@name, @size, @description, @price, @boxImg, @material) RETURNING *;";
+        var sql = $@"INSERT INTO 
+                    boxes.box (name, size, description, price, boxImage, material)
+                    VALUES (@name, @size, @description, @price, @boxImage, @material) 
+                    RETURNING *;";
         using (var conn = _datasource.OpenConnection())
         {
-            return conn.QueryFirst(sql, box);
+            return conn.QueryFirst<Box>(sql, box);
         }
     }
 
-    public Box UpdateBox(Box box, int id)
+    public Box UpdateBox(Box box, int boxId)
     {
-        var sql = $@"UPDATE boxes.box SET name = @name, size = @size, description = @decription, price = @price,
-                     boxImg = @boxImg, material = @material WHERE boxid = @boxId RETURNING *;";
+        var sql = $@"UPDATE boxes.box 
+                    SET name = @name, 
+                        size = @size, 
+                        description = @description, 
+                        price = @price, 
+                        boxImage = @boxImage, 
+                        material = @material 
+                    WHERE boxId = @boxId 
+                    RETURNING *;";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.QueryFirst<Box>(sql,
-                new { box.name, box.size, box.description, box.price, box.boxImage, box.material });
+                new { box.name, box.size, box.description, box.price, box.boxImage, box.material, boxId });
         }
     }
 
@@ -55,9 +64,9 @@ public class Repository
     public IEnumerable<Box> searchBox(string searchTerm)
     {
         var sql = $@"SELECT * FROM boxes.box WHERE
-                            name LIKE '%' || @searchTerm || '%'
-                            OR size LIKE '%' || @searchTerm || '%'
-                            OR material LIKE '%' || @searchTerm || '%';";
+                            name ILIKE '%' || @searchTerm || '%'
+                            OR size ILIKE '%' || @searchTerm || '%'
+                            OR material ILIKE '%' || @searchTerm || '%';";
         if (searchTerm.Length >= 4)
         {
             using (var conn = _datasource.OpenConnection())
