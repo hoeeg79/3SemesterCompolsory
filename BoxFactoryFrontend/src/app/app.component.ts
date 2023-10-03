@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {ModalController, ToastController} from "@ionic/angular";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
@@ -15,7 +15,7 @@ import {UpdateboxComponent} from "./updatebox.component";
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   searchBoxForm: FormGroup;
   searchOnGoing: boolean = false;
   constructor(public http: HttpClient, public modalController: ModalController, public formBuilder: FormBuilder,
@@ -46,7 +46,8 @@ export class AppComponent {
   }
 
   async fetchBoxes() {
-    const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/catalogue/"));
+    const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/catalogue"));
+    console.log(result);
     this.state.boxItems = result!;
   }
 
@@ -73,5 +74,9 @@ export class AppComponent {
       component: CreateboxComponent
     });
     modal.present();
+  }
+
+  ngOnInit(): void {
+    this.fetchBoxes();
   }
 }
