@@ -1,3 +1,5 @@
 /API/obj/
+*/bin/
+*/obj/
 /.idea/
 /PlaywrightTests/bin/
