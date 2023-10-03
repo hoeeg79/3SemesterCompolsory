@@ -26,7 +26,7 @@ public class Repository
     {
         var sql = $@"INSERT INTO 
                     boxes.box (name, size, description, price, boxImage, material)
-                    VALUES (@name, @size, @description, @price, @boxImage, @material) 
+                    VALUES (@name, @size, @description, @price, @boxImgUrl, @materials) 
                     RETURNING *;";
         using (var conn = _datasource.OpenConnection())
         {
@@ -41,14 +41,14 @@ public class Repository
                         size = @size, 
                         description = @description, 
                         price = @price, 
-                        boxImage = @boxImage, 
-                        material = @material 
+                        boxImage = @boxImgUrl, 
+                        material = @materials 
                     WHERE boxId = @boxId 
                     RETURNING *;";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.QueryFirst<Box>(sql,
-                new { box.name, box.size, box.description, box.price, box.boxImage, box.material, boxId });
+                new { box.name, box.size, box.description, box.price, box.boxImgUrl, box.materials, boxId });
         }
     }
 

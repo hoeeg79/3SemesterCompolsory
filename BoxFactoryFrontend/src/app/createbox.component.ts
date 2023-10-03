@@ -31,7 +31,7 @@ export class CreateboxComponent {
  async submit() {
     try {
       let dto = this.createNewBoxForm.getRawValue();
-      const observable = this.http.post<BoxItem>(environment.baseUrl + '/api/boxes/', dto);
+      const observable = this.http.post<BoxItem>('http://localhost:5000/api/boxes/', dto);
       const response = await firstValueFrom(observable);
       this.state.boxItems.push(response);
       this.modalController.dismiss();

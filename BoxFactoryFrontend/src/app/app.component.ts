@@ -30,7 +30,7 @@ export class AppComponent {
       if (searchQuery === '' && this.searchOnGoing) {
         this.fetchBoxes();
       } else if (searchQuery >= 4) {
-        const result = await firstValueFrom(this.http.get<BoxItem[]>(environment.baseUrl + "/api/boxes?searchterm=" +
+        const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/boxes?searchterm=" +
         searchQuery));
         this.state.boxItems = result!;
         this.searchOnGoing = true;
@@ -46,13 +46,13 @@ export class AppComponent {
   }
 
   async fetchBoxes() {
-    const result = await firstValueFrom(this.http.get<BoxItem[]>(environment.baseUrl + "/api/catalogue/"));
+    const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/catalogue/"));
     this.state.boxItems = result!;
   }
 
   async deleteBox(boxId: number | undefined) {
     try {
-      await firstValueFrom(this.http.delete(environment.baseUrl + "/api/deletebox/" + boxId));
+      await firstValueFrom(this.http.delete("http://localhost:5000/api/deletebox/" + boxId));
       this.state.boxItems = this.state.boxItems.filter(box => box.boxId != boxId);
     } catch (e) {
       if (e instanceof HttpErrorResponse) {
