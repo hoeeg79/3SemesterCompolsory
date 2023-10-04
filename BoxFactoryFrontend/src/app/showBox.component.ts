@@ -10,10 +10,10 @@ export class ShowBoxComponent{
   }
 
   updateBox(boxItem: any) {
-    
+
   }
 
   deleteBox(boxId: any) {
-    
+
   }
 }

@@ -30,7 +30,8 @@ export class AppComponent implements OnInit{
       const searchQuery = event.target.value;
       if (searchQuery === '' && this.searchOnGoing) {
         this.fetchBoxes();
-      } else if (searchQuery >= 4) {
+        this.searchOnGoing = false
+      } else if (searchQuery.length >= 4) {
         const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/boxes?searchterm=" +
         searchQuery));
         this.state.boxItems = result!;
