@@ -1,11 +1,11 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ModalController, ToastController} from "@ionic/angular";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {State} from "../state";
 import {BoxItem} from "../models";
 import {environment} from "../environments/environment.prod";
-import {firstValueFrom} from "rxjs";
+import {firstValueFrom, observable} from "rxjs";
 
 
 @Component({
@@ -13,7 +13,7 @@ import {firstValueFrom} from "rxjs";
 
 })
 
-export class UpdateboxComponent {
+export class UpdateboxComponent implements OnInit{
     updateBoxForm = this.fb.group( {
         name: [this.state.currentBox.name, Validators.required],
         size: [this.state.currentBox.size, Validators.required],
@@ -31,7 +31,7 @@ export class UpdateboxComponent {
     async submit() {
         try {
             let dto = this.updateBoxForm.getRawValue();
-            const observable = this.http.put<BoxItem>(environment.baseUrl + '/api/boxes/' + this.state.currentBox.boxId, dto);
+            const observable = this.http.put<BoxItem>('http://localhost:5000/api/boxes/' + this.state.currentBox.boxId, dto);
             const response = await firstValueFrom(observable);
             this.state.boxItems = this.state.boxItems.filter(box => box.boxId != this.state.currentBox.boxId);
             this.state.boxItems.push(response);
@@ -42,4 +42,7 @@ export class UpdateboxComponent {
             };
         }
     }
+
+  ngOnInit(): void {
+  }
 }

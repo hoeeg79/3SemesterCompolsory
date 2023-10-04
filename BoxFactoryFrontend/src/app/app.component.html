@@ -14,18 +14,18 @@
     <ion-list>
       <ion-card [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems">
         <ion-toolbar>
-          <ion-title>{{boxItem.name}}</ion-title>
+          <ion-title (click)="openBox(boxItem.boxId)">{{boxItem.name}}</ion-title>
         </ion-toolbar>
         <ion-buttons>
           <ion-button data-testid="delete-button" (click)="deleteBox(boxItem.boxId)">
             <ion-icon name="trash-outline"></ion-icon>
           </ion-button>
-          <ion-button (click)="updateBox(boxItem.boxId)">
+          <ion-button (click)="updateBox(boxItem)">
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-card-subtitle>{{boxItem.description}}</ion-card-subtitle>
-        <img style="max-height: 200px" [src]="boxItem.boxImgUrl">
+        <ion-card-subtitle (click)="openBox(boxItem.boxId)">{{boxItem.description}}</ion-card-subtitle>
+        <img style="max-height: 200px" [src]="boxItem.boxImgUrl" (click)="openBox(boxItem.boxId)">
       </ion-card>
     </ion-list>
 

@@ -9,6 +9,7 @@ import {BoxItem} from "../models";
 import {environment} from "../environments/environment.prod";
 import {CreateboxComponent} from "./createbox.component";
 import {UpdateboxComponent} from "./updatebox.component";
+import {ShowBoxComponent} from "./showBox.component";
 
 @Component({
   selector: 'app-root',
@@ -62,10 +63,11 @@ export class AppComponent implements OnInit{
     }
   }
 
-  async updateBox(boxId: number | undefined) {
+  async updateBox(box: BoxItem | undefined) {
     const modal = await this.modalController.create({
       component: UpdateboxComponent
     });
+    this.state.currentBox = box!;
     modal.present();
   }
 
@@ -76,7 +78,17 @@ export class AppComponent implements OnInit{
     modal.present();
   }
 
+  async openBox(boxId: number | undefined){
+    const modal = await this.modalController.create({
+      component: ShowBoxComponent
+    });
+    this.state.currentBox = await firstValueFrom(this.http.get<BoxItem>("http://localhost:5000/api/boxes/" + boxId));
+
+    modal.present();
+  }
+
   ngOnInit(): void {
     this.fetchBoxes();
   }
+
 }

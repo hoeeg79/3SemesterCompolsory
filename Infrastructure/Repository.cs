@@ -15,7 +15,7 @@ public class Repository
 
     public IEnumerable<Box> GetAllBoxes()
     {
-        var sql = $@"SELECT boxId, name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImage, material FROM boxes.box;";
+        var sql = $@"SELECT boxId, name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImage AS boxImgUrl, material AS materials FROM boxes.box;";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.Query<Box>(sql);
