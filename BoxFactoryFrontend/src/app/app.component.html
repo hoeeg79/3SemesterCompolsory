@@ -1,6 +1,7 @@
 <ion-app>
-  <ion-content style="position: absolute; top: 0; left: 15%; width: 70%;">
+  <ion-content style="position: absolute; top: 0;">
     <ion-item>
+      <ion-toggle (click)="toggleTheme()"></ion-toggle>
       <ion-searchbar
         [formGroup]="searchBoxForm"
         data-testid="searchbar"
@@ -11,8 +12,8 @@
       >
       </ion-searchbar>
     </ion-item>
-    <ion-list>
-      <ion-card [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems">
+    <div class="card-container">
+      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems">
         <ion-toolbar>
           <ion-title (click)="openBox(boxItem.boxId)">{{boxItem.name}}</ion-title>
         </ion-toolbar>
@@ -25,9 +26,9 @@
           </ion-button>
         </ion-buttons>
         <ion-card-subtitle (click)="openBox(boxItem.boxId)">{{boxItem.description}}</ion-card-subtitle>
-        <img style="max-height: 200px" [src]="boxItem.boxImgUrl" (click)="openBox(boxItem.boxId)">
+        <img style="max-height: 200px" [src]="'https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif'" (click)="openBox(boxItem.boxId)">
       </ion-card>
-    </ion-list>
+    </div>
 
     <ion-fab>
       <ion-fab-button data-testid="create-button" (click)="createBox()">

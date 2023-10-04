@@ -6,19 +6,20 @@ import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {State} from "../state";
 import {firstValueFrom} from "rxjs";
 import {BoxItem} from "../models";
-import {environment} from "../environments/environment.prod";
 import {CreateboxComponent} from "./createbox.component";
 import {UpdateboxComponent} from "./updatebox.component";
 import {ShowBoxComponent} from "./showBox.component";
+import {body} from "ionicons/icons";
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  styleUrls: ['app.component2.css'],
 })
 export class AppComponent implements OnInit{
   searchBoxForm: FormGroup;
   searchOnGoing: boolean = false;
+  themeToggle = false;
   constructor(public http: HttpClient, public modalController: ModalController, public formBuilder: FormBuilder,
               public state: State, public toastController: ToastController) {
     this.searchBoxForm = this.formBuilder.group({searchQuery: new FormControl(""),
@@ -92,4 +93,7 @@ export class AppComponent implements OnInit{
     this.fetchBoxes();
   }
 
+  toggleTheme() {
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D")
+  }
 }
