@@ -18,6 +18,7 @@
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0-preview-23424-02" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="Npgsql" Version="8.0.0-preview.4" />
+      <PackageReference Include="Npgsql.DependencyInjection" Version="8.0.0-preview.4" />
       <PackageReference Include="NUnit" Version="3.13.3" />
       <PackageReference Include="NUnit.Analyzers" Version="3.8.0">
         <PrivateAssets>all</PrivateAssets>

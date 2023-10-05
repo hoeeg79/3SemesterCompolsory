@@ -17,6 +17,8 @@ public class Service
         try
         {
             return _repository.GetAllBoxes();
+            
+            
         }
         catch (Exception)
         {

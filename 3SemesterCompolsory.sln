@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoxAPITests", "BoxAPITests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{B2323726-28DA-4C82-BE0B-2EBABCD1AF89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightTests", "PlaywrightTests\PlaywrightTests.csproj", "{BD1041A1-A9BD-4A6D-AB4A-D2C0754A2A4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{B2323726-28DA-4C82-BE0B-2EBABCD1AF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2323726-28DA-4C82-BE0B-2EBABCD1AF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2323726-28DA-4C82-BE0B-2EBABCD1AF89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD1041A1-A9BD-4A6D-AB4A-D2C0754A2A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1041A1-A9BD-4A6D-AB4A-D2C0754A2A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD1041A1-A9BD-4A6D-AB4A-D2C0754A2A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD1041A1-A9BD-4A6D-AB4A-D2C0754A2A4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
