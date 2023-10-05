@@ -1,10 +1,19 @@
-﻿namespace DefaultNamespace;
+﻿using Npgsql;
+using Dapper;
+using NUnit.Framework;
+using Newtonsoft.Json;
+
+namespace DefaultNamespace;
 
 public class Helper
 {
+    public static readonly Uri Uri;
+    public static readonly string ProperlyFormattedConnectionString;
+    public static readonly NpgsqlDataSource DataSource;
+    
     public static string RebuildScript = @"
     DROP SCHEMA IF EXISTS
-    private boxes CASCADE;
+    boxes CASCADE;
     CREATE SCHEMA boxes;
     create table if not exists boxes.box
         (
@@ -16,5 +25,49 @@ public class Helper
             boxImage    text,
             material    text,
                 primary key (boxId)
-                );"
+                );";
+
+    static Helper()
+    {
+        string rawConnectionString;
+        string envVarKeyName = "pgconn";
+
+        rawConnectionString = Environment.GetEnvironmentVariable(envVarKeyName)!;
+        try
+        {
+            Console.WriteLine(rawConnectionString);
+            Uri = new Uri(rawConnectionString);
+            ProperlyFormattedConnectionString = string.Format(
+                "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=true;MaxPoolSize=3",
+                Uri.Host,
+                Uri.AbsolutePath.Trim('/'),
+                Uri.UserInfo.Split(':')[0],
+                Uri.UserInfo.Split(':')[1],
+                Uri.Port > 0 ? Uri.Port : 5432);
+            DataSource =
+                new NpgsqlDataSourceBuilder(ProperlyFormattedConnectionString).Build();
+            DataSource.OpenConnection().Close();
+        }
+        catch (Exception)
+        {
+            throw new Exception("noget gik fuck");
+        }
+    }
+    
+public static void TriggerRebuild()
+    {
+        using (var conn = DataSource.OpenConnection())
+        {
+            try
+            {
+                conn.Execute(RebuildScript);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("------------------------");
+                throw new Exception();
+            }
+        }
+    }
 }
