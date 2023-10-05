@@ -74,4 +74,32 @@ public class Tests : PageTest
         await Expect(kasse).ToBeVisibleAsync();
     }
 
+    [Test]
+        public async Task DeleteBoxes()
+        {
+            //Arrange
+            var box = new Box()
+            {
+                name = "skalSlettes",
+                size = "lille kasse",
+                description = "denne kasse er lille bitte",
+                price = 99999,
+                boxImgUrl = "someurl",
+                materials = "gamle tavler"
+            };
+            var sql = $@"INSERT INTO
+                        boxes.box (name, size, description, price, boxImage, material)
+                        VALUES (@name, @size, @description, @price, @boxImgUrl, @materials)";
+            using (var conn = Helper.DataSource.OpenConnection())
+            {
+                conn.Execute(sql, box);
+            }
+    
+            //Act
+            await Page.GotoAsync("http://localhost:4200/");
+            await Page.GetByTestId("delete-button").ClickAsync();
+            //Assert
+            var boxGone = Page.GetByTestId("card_skalSlettes");
+            await Expect(boxGone).Not.ToBeVisibleAsync();
+        }
 }
