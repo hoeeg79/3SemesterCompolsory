@@ -9,7 +9,6 @@ import {BoxItem} from "../models";
 import {CreateboxComponent} from "./createbox.component";
 import {UpdateboxComponent} from "./updatebox.component";
 import {ShowBoxComponent} from "./showBox.component";
-import {body} from "ionicons/icons";
 
 @Component({
   selector: 'app-root',
