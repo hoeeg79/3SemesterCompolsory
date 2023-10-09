@@ -39,10 +39,10 @@ public class Tests : PageTest
                     VALUES (@name, @size, @description, @price, @boxImgUrl, @materials);";
             using (var conn = Helper.DataSource.OpenConnection())
             {
-                conn.Execute(sql);
+                conn.Execute(sql, box);
             }
         }
-        var kasse = Page.GetByTestId("card_Hello big chonker 8");
+        var kasse =  Page.GetByTestId("card_Hello big chonker 8");
         await Expect(kasse).ToBeVisibleAsync();
     }
     
