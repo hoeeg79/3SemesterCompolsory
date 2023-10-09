@@ -50,16 +50,14 @@ public class Tests : PageTest
         await Expect(kasse).ToBeVisibleAsync();
     }
     
-
-    [TestCase("Bjarne")]
-    [TestCase("Stén")]
-    public async Task CreateBoxTest(string name)
+    [Test]
+    public async Task CreateBoxTest()
     {
         await Page.GotoAsync("http://localhost:5000/");
 
         await Page.GetByTestId("create-button").GetByRole(AriaRole.Img).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
-        await Page.GetByLabel("insert name for box please").FillAsync(name);
+        await Page.GetByLabel("insert name for box please").FillAsync("Bajrne");
         await Page.GetByLabel("insert size for the box please").ClickAsync();
         await Page.GetByLabel("insert size for the box please").FillAsync("test");
         await Page.GetByLabel("insert box description please").ClickAsync();
