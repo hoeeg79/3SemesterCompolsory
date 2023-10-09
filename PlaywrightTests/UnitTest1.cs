@@ -54,8 +54,8 @@ public class Tests : PageTest
     [TestCase("Stèn")]
     public async Task CreateBoxTest(string name)
     {
+        //Arrange
         await Page.GotoAsync("http://localhost:5000/");
-
         await Page.GetByTestId("create-button").GetByRole(AriaRole.Img).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
         await Page.GetByLabel("insert name for box please").FillAsync(name);
@@ -69,8 +69,11 @@ public class Tests : PageTest
         await Page.GetByLabel("insert box price please").FillAsync("111");
         await Page.GetByLabel("insert box material please").ClickAsync();
         await Page.GetByLabel("insert box material please").FillAsync("test");
+        
+        //Act
         await Page.GetByRole(AriaRole.Button, new() { Name = "submit" }).ClickAsync();
-
+        
+        //Assert
         var kasse = Page.GetByTestId("card_" + name);
         await Expect(kasse).ToBeVisibleAsync();
     }
