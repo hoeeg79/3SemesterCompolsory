@@ -32,7 +32,7 @@ public class Tests : PageTest
                 size = "Kæmpe stor",
                 description = "Nu skal Monika til at lave noget haha :)",
                 price = 69,
-                boxImgUrl = "KæmpeKasser.jpg",
+                boxImgUrl = "https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif",
                 materials = "Elfenben"
             };
             boxes.Add(box);
@@ -108,7 +108,7 @@ public class Tests : PageTest
             size = "lille kasse",
             description = "denne kasse er lille bitte",
             price = 99999,
-            boxImgUrl = "someurl",
+            boxImgUrl = "https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif",
             materials = "gamle tavler"
         };
         var sql = $@"INSERT INTO
@@ -142,7 +142,7 @@ public class Tests : PageTest
                 size = "Kæmpe stor",
                 description = "Nu skal Monika til at lave noget haha :)",
                 price = 69,
-                boxImgUrl = "KæmpeKasser.jpg",
+                boxImgUrl = "https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif",
                 materials = "Elfenben"
             };
             boxes.Add(box);
@@ -179,7 +179,7 @@ public class Tests : PageTest
                 size = "Kæmpe stor",
                 description = "Nu skal Monika til at lave noget haha :)",
                 price = 69,
-                boxImgUrl = "KæmpeKasser.jpg",
+                boxImgUrl = "https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif",
                 materials = "Elfenben"
             };
             boxes.Add(box);
@@ -216,7 +216,7 @@ public class Tests : PageTest
                 size = "Kæmpe stor",
                 description = "Nu skal Monika til at lave noget haha :)",
                 price = 69,
-                boxImgUrl = "KæmpeKasser.jpg",
+                boxImgUrl = "https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif",
                 materials = "Elfenben"
             };
             boxes.Add(box);
