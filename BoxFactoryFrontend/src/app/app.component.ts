@@ -84,7 +84,7 @@ export class AppComponent implements OnInit{
       component: ShowBoxComponent
     });
     this.state.currentBox = await firstValueFrom(this.http.get<BoxItem>("http://localhost:5000/api/boxes/" + boxId));
-
+    console.log(this.state.currentBox)
     modal.present();
   }
 

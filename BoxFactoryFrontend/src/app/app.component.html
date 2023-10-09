@@ -13,20 +13,12 @@
       </ion-searchbar>
     </ion-item>
     <div class="card-container">
-      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems">
+      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems" (click)="openBox(boxItem.boxId)">
         <ion-toolbar>
-          <ion-title (click)="openBox(boxItem.boxId)">{{boxItem.name}}</ion-title>
+          <ion-title>{{boxItem.name}}</ion-title>
         </ion-toolbar>
-        <ion-buttons>
-          <ion-button data-testid="delete-button" (click)="deleteBox(boxItem.boxId)">
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-button>
-          <ion-button (click)="updateBox(boxItem)">
-            <ion-icon name="create-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-card-subtitle (click)="openBox(boxItem.boxId)">{{boxItem.description}}</ion-card-subtitle>
-        <img style="max-height: 200px" [src]="'https://media.tenor.com/-Y2YOay3_JoAAAAM/its-friday-dancing.gif'" (click)="openBox(boxItem.boxId)">
+        <ion-card-subtitle>Description: {{boxItem.description}}</ion-card-subtitle>
+        <img style="max-height: 200px" [src]="boxItem.boxImgUrl">
       </ion-card>
     </div>
 

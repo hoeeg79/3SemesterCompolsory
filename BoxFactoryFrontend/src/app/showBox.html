@@ -1,5 +1,4 @@
-<ion-list>
-  <ion-card [attr.data-testid]="'card_'+state.currentBox.name">
+<div class="showBox">
     <ion-toolbar>
       <ion-title>{{state.currentBox.name}}</ion-title>
     </ion-toolbar>
@@ -11,7 +10,8 @@
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-card-subtitle >{{state.currentBox.description}}</ion-card-subtitle>
+    <ion-card-subtitle >Price: {{state.currentBox.price}}</ion-card-subtitle>
+    <ion-card-subtitle >Description: {{state.currentBox.description}}</ion-card-subtitle>
+    <ion-card-subtitle >Material: {{state.currentBox.materials}}</ion-card-subtitle>
     <img style="max-height: 200px" [src]="state.currentBox.boxImgUrl" >
-  </ion-card>
-</ion-list>
+</div>

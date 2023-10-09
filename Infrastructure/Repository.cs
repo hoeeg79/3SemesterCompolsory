@@ -44,7 +44,7 @@ public class Repository
                         boxImage = @boxImgUrl, 
                         material = @materials 
                     WHERE boxId = @boxId 
-                    RETURNING *;";
+                    RETURNING boxId, name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImage AS boxImgUrl, material AS materials;";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.QueryFirst<Box>(sql,
@@ -80,7 +80,7 @@ public class Repository
 
     public Box getBox(int boxId)
     {
-        var sql = $@"SELECT * FROM boxes.box WHERE boxid = @boxId";
+        var sql = $@"SELECT boxId, name, size, SUBSTRING(description, 1, 50 ) AS description, price, boxImage AS boxImgUrl, material AS materials FROM boxes.box WHERE boxid = @boxId";
         using (var conn = _datasource.OpenConnection())
         {
             return conn.QueryFirst<Box>(sql, new { boxId });

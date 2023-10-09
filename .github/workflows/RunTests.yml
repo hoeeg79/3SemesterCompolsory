@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: runTests
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull_request:
+    branches: [ "master" ]
+
+    # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x.x
+
+      - name: Install Angular program dependencies and build
+        run: cd BoxFactoryFrontend && npm i -g @angular/cli && npm i && ng build 
+
+      - name: Build test code and install playwright test browser
+        run: cd PlaywrightTests && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+
+      - name: Build and run Web API + getting process ID for shutting down later
+        run: cd API && dotnet run & echo "API_PID=$!" >> $GITHUB_ENV
+        env:
+          pgconn: ${{secrets.PGCONN}}
+
+      - name: Run tests once API is running
+        run: cd PlaywrightTests && sleep 20 && dotnet test
+        env:
+          pgconn: ${{secrets.PGCONN}}
+          
+      - name: Shutdown Web API once the tests are done running
+        run: kill $API_PID
