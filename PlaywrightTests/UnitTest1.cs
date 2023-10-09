@@ -45,17 +45,17 @@ public class Tests : PageTest
             }
         }
         
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
         var kasse =  Page.GetByTestId("card_Hello big chonker 8");
         await Expect(kasse).ToBeVisibleAsync();
     }
     
 
-    [TestCase("Stén")]
     [TestCase("Bjarne")]
+    [TestCase("Stén")]
     public async Task CreateBoxTest(string name)
     {
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
 
         await Page.GetByTestId("create-button").GetByRole(AriaRole.Img).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
@@ -72,7 +72,7 @@ public class Tests : PageTest
         await Page.GetByLabel("insert box material please").FillAsync("test");
         await Page.GetByRole(AriaRole.Button, new() { Name = "submit" }).ClickAsync();
 
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
 
         var kasse = Page.GetByTestId("card_" + name);
         await Expect(kasse).ToBeVisibleAsync();
@@ -82,7 +82,7 @@ public class Tests : PageTest
     public async Task CreateBoxFail()
     {
         
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
 
         await Page.GetByTestId("create-button").GetByRole(AriaRole.Img).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
@@ -120,7 +120,7 @@ public class Tests : PageTest
         }
 
         //Act
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
         await Page.GetByTestId("delete-button").ClickAsync();
         //Assert
         var boxGone = Page.GetByTestId("card_skalSlettes");
@@ -156,7 +156,7 @@ public class Tests : PageTest
         }
         
         //Act
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
         await Page.GetByTestId("searchbar").GetByPlaceholder("Enter your search here").ClickAsync();
         await Page.GetByTestId("searchbar").GetByPlaceholder("Enter your search here").FillAsync(testCase);
         
@@ -193,7 +193,7 @@ public class Tests : PageTest
         }
         
         //Act
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
         await Page.GetByTestId("searchbar").GetByPlaceholder("Enter your search here").ClickAsync();
         await Page.GetByTestId("searchbar").GetByPlaceholder("Enter your search here").FillAsync("Chonkkers");
         
@@ -230,7 +230,7 @@ public class Tests : PageTest
         }
         
         //Act
-        await Page.GotoAsync("http://localhost:4200/");
+        await Page.GotoAsync("http://localhost:5000/");
         await Page.GetByTestId("card_Hello big chonker 1").GetByRole(AriaRole.Button).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
         await Page.GetByLabel("insert name for box please").FillAsync("Kæmpe lille");
