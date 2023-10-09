@@ -72,7 +72,7 @@ public class Tests : PageTest
 
         await Page.GotoAsync("http://localhost:5000/");
 
-        var kasse = Page.GetByTestId("card_" + name);
+        var kasse = Page.GetByTestId("card_Bajrne");
         await Expect(kasse).ToBeVisibleAsync();
     }
 
