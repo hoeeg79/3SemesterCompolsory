@@ -50,14 +50,15 @@ public class Tests : PageTest
         await Expect(kasse).ToBeVisibleAsync();
     }
     
-    [Test]
-    public async Task CreateBoxTest()
+    [TestCase("Fjarne")]
+    [TestCase("Stèn")]
+    public async Task CreateBoxTest(string name)
     {
         await Page.GotoAsync("http://localhost:5000/");
 
         await Page.GetByTestId("create-button").GetByRole(AriaRole.Img).Nth(1).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
-        await Page.GetByLabel("insert name for box please").FillAsync("Bajrne");
+        await Page.GetByLabel("insert name for box please").FillAsync(name);
         await Page.GetByLabel("insert size for the box please").ClickAsync();
         await Page.GetByLabel("insert size for the box please").FillAsync("test");
         await Page.GetByLabel("insert box description please").ClickAsync();
@@ -70,9 +71,7 @@ public class Tests : PageTest
         await Page.GetByLabel("insert box material please").FillAsync("test");
         await Page.GetByRole(AriaRole.Button, new() { Name = "submit" }).ClickAsync();
 
-        await Page.GotoAsync("http://localhost:5000/");
-
-        var kasse = Page.GetByTestId("card_Bajrne");
+        var kasse = Page.GetByTestId("card_" + name);
         await Expect(kasse).ToBeVisibleAsync();
     }
 
