@@ -121,7 +121,9 @@ public class Tests : PageTest
 
         //Act
         await Page.GotoAsync("http://localhost:5000/");
-        await Page.GetByTestId("delete-button").ClickAsync();
+        await Page.GetByTestId("card_skalSlettes").ClickAsync();
+        await Page.GetByTestId("delete-button").GetByRole(AriaRole.Button).ClickAsync();
+
         //Assert
         var boxGone = Page.GetByTestId("card_skalSlettes");
         await Expect(boxGone).Not.ToBeVisibleAsync();
@@ -231,13 +233,16 @@ public class Tests : PageTest
         
         //Act
         await Page.GotoAsync("http://localhost:5000/");
-        await Page.GetByTestId("card_Hello big chonker 1").GetByRole(AriaRole.Button).Nth(1).ClickAsync();
+        await Page.GetByTestId("card_Hello big chonker 3").ClickAsync();
+        await Page.GetByRole(AriaRole.Button).Nth(2).ClickAsync();
         await Page.GetByLabel("insert name for box please").ClickAsync();
-        await Page.GetByLabel("insert name for box please").FillAsync("Kæmpe lille");
-        await Page.GetByRole(AriaRole.Button, new() { Name = "send" }).ClickAsync();
+        await Page.GetByLabel("insert name for box please").FillAsync("Hello big chonker 70");
+        await Page.GetByRole(AriaRole.Button, new() { Name = "submit" }).ClickAsync();
+
+
         
         //Assert
-        var kasse =  Page.GetByTestId("card_Kæmpe lille");
+        var kasse =  Page.GetByTestId("card_Hello big chonker 70");
         await Expect(kasse).ToBeVisibleAsync();
     }
 }

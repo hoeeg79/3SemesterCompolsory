@@ -21,6 +21,7 @@ export class ShowBoxComponent{
     });
     this.state.currentBox = boxItem!;
     modal.present();
+    this.modalController.dismiss();
   }
 
   async deleteBox(boxId: any) {
