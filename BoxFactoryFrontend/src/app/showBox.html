@@ -1,17 +1,21 @@
 <div class="showBox">
-    <ion-toolbar>
-      <ion-title>{{state.currentBox.name}}</ion-title>
-    </ion-toolbar>
-    <ion-buttons>
-      <ion-button data-testid="delete-button" (click)="deleteBox(state.currentBox.boxId)">
-        <ion-icon name="trash-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="updateBox(state.currentBox)">
-        <ion-icon name="create-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-card-subtitle >Price: {{state.currentBox.price}}</ion-card-subtitle>
-    <ion-card-subtitle >Description: {{state.currentBox.description}}</ion-card-subtitle>
-    <ion-card-subtitle >Material: {{state.currentBox.materials}}</ion-card-subtitle>
-    <img style="max-height: 200px" [src]="state.currentBox.boxImgUrl" >
+  <ion-toolbar class="custom-header">
+    <ion-title>{{state.currentBox.name}}</ion-title>
+  </ion-toolbar>
+  <div class="content-wrapper">
+    <ion-card-subtitle class="box-info">Price: {{state.currentBox.price}}</ion-card-subtitle>
+    <ion-card-subtitle class="box-info">Material: {{state.currentBox.materials}}</ion-card-subtitle>
+    <ion-card-subtitle class="box-info">Description: {{state.currentBox.description}}</ion-card-subtitle>
+    <div class="image-container">
+      <img src="{{state.currentBox.boxImgUrl}}" alt="{{state.currentBox.name}}">
+    </div>
+  </div>
+  <ion-buttons class="action-buttons">
+    <ion-button data-testid="delete-button" (click)="deleteBox(state.currentBox.boxId)" class="delete-button">
+      <ion-icon name="trash-outline"></ion-icon> Delete
+    </ion-button>
+    <ion-button (click)="updateBox(state.currentBox)" class="update-button">
+      <ion-icon name="create-outline"></ion-icon> Update
+    </ion-button>
+  </ion-buttons>
 </div>

@@ -1,4 +1,67 @@
-.showBox
-{
-  margin: 5%;
+/* Style for the modal overlay */
+ion-modal.showBox-modal {
+  --backdrop-opacity: 0.7; /* Adjust the backdrop opacity */
+}
+
+/* Style for the modal content */
+ion-content.showBox-content {
+  --ion-background-color: rgba(255, 255, 255, 0.95); /* Make the modal content background slightly transparent */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.custom-header {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  padding: 10px;
+}
+
+.content-wrapper {
+  margin: 10px; /* Add margin to the content */
+}
+
+.box-info {
+  font-size: 1rem; /* Decrease font size to make text smaller */
+  color: lightgrey;
+  margin: 10px 0;
+}
+
+.image-container {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delete-button,
+.update-button {
+  background-color: #ff6347; /* Change button colors */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem; /* Decrease font size to match text size */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover,
+.update-button:hover {
+  background-color: #ff4136; /* Darker color on hover */
 }
