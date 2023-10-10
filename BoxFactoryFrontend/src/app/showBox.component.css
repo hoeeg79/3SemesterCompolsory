@@ -3,19 +3,9 @@ ion-modal.showBox-modal {
   --backdrop-opacity: 0.7; /* Adjust the backdrop opacity */
 }
 
-/* Style for the modal content */
-ion-content.showBox-content {
-  --ion-background-color: rgba(255, 255, 255, 0.95); /* Make the modal content background slightly transparent */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
 .custom-header {
   background-color: #007bff;
-  color: #fff;
+  color: darkgrey;
   border-radius: 10px 10px 0 0;
   text-align: center;
   padding: 10px;
@@ -32,10 +22,9 @@ ion-content.showBox-content {
   flex: 1; /* Distribute available space equally between text and image */
   font-size: 1.5rem; /* Decrease font size for text */
   color: lightgrey;
-  margin: 25px;
-  line-height: 2; /* Increase line spacing */
+  margin: 10px 25px 25px 25px; /* Adjust top margin here */
+  line-height: 1.6; /* Increase line spacing */
 }
-
 
 .image-container {
   flex: 1; /* Distribute available space equally between text and image */
@@ -47,13 +36,14 @@ img {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
 }
 
 .action-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .delete-button,
