@@ -23,15 +23,22 @@ ion-content.showBox-content {
 
 .content-wrapper {
   margin: 10px; /* Add margin to the content */
+  display: flex; /* Display child elements in a row */
+  flex-direction: row; /* Arrange child elements horizontally */
+  justify-content: space-between; /* Add space between text and image */
 }
 
 .box-info {
-  font-size: 1rem; /* Decrease font size to make text smaller */
+  flex: 1; /* Distribute available space equally between text and image */
+  font-size: 1.5rem; /* Decrease font size for text */
   color: lightgrey;
-  margin: 10px 0;
+  margin: 25px;
+  line-height: 2; /* Increase line spacing */
 }
 
+
 .image-container {
+  flex: 1; /* Distribute available space equally between text and image */
   text-align: center;
 }
 
@@ -46,7 +53,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 100px;
 }
 
 .delete-button,
@@ -55,13 +62,6 @@ img {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem; /* Decrease font size to match text size */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.delete-button:hover,
-.update-button:hover {
-  background-color: #ff4136; /* Darker color on hover */
+  padding: 2px 8px;
+  font-size: 1rem;
 }

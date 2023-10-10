@@ -3,9 +3,12 @@
     <ion-title>{{state.currentBox.name}}</ion-title>
   </ion-toolbar>
   <div class="content-wrapper">
-    <ion-card-subtitle class="box-info">Price: {{state.currentBox.price}}</ion-card-subtitle>
-    <ion-card-subtitle class="box-info">Material: {{state.currentBox.materials}}</ion-card-subtitle>
-    <ion-card-subtitle class="box-info">Description: {{state.currentBox.description}}</ion-card-subtitle>
+    <div class="box-info">
+      <ion-card-subtitle>Price: {{state.currentBox.price}}</ion-card-subtitle>
+      <ion-card-subtitle>Material: {{state.currentBox.materials}}</ion-card-subtitle>
+      <ion-card-subtitle>Size: {{state.currentBox.size}}</ion-card-subtitle>
+      <ion-card-subtitle>Description: {{state.currentBox.description}}</ion-card-subtitle>
+    </div>
     <div class="image-container">
       <img src="{{state.currentBox.boxImgUrl}}" alt="{{state.currentBox.name}}">
     </div>
