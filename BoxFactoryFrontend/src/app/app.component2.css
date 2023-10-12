@@ -37,3 +37,11 @@ ion-card.results {
   max-width: 200px;
   border-radius: 3px;
 }
+
+.floating-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+
+}
