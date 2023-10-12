@@ -1,5 +1,6 @@
 <ion-app>
   <ion-content style="position: absolute; top: 0;">
+    <a routerLink="['/']">
     <ion-item>
       <ion-toggle (click)="toggleTheme()"></ion-toggle>
       <ion-searchbar
@@ -12,29 +13,7 @@
       >
       </ion-searchbar>
     </ion-item>
-    <div class="card-container">
-      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems"
-                (click)="openBox(boxItem.boxId)">
-        <ion-toolbar>
-          <ion-title>{{boxItem.name}}</ion-title>
-        </ion-toolbar>
-        <div class="box-full">
-          <div class="box-info">
-            <ion-card-subtitle>price: {{boxItem.price}} kr.</ion-card-subtitle>
-            <ion-card-subtitle>Size: {{boxItem.size}}</ion-card-subtitle>
-            <ion-card-subtitle>Material: {{boxItem.materials}}</ion-card-subtitle>
-          </div>
-          <div class="box-image-container">
-            <img class="box-image" [src]="boxItem.boxImgUrl">
-          </div>
-        </div>
-      </ion-card>
-    </div>
-
-    <ion-fab>
-      <ion-fab-button data-testid="create-button" (click)="createBox()" class="floating-button" color="danger">
-        <ion-icon name="add-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    </a>
+    <router-outlet></router-outlet>
   </ion-content>
 </ion-app>

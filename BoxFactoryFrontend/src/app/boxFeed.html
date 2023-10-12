@@ -1,0 +1,19 @@
+<ion-app>
+  <ion-content style="position: absolute; top: 0;">
+    <div class="card-container">
+      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems" (click)="openBox(boxItem.boxId)">
+        <ion-toolbar>
+          <ion-title>{{boxItem.name}}</ion-title>
+        </ion-toolbar>
+        <ion-card-subtitle>Description: {{boxItem.description}}</ion-card-subtitle>
+        <img style="max-height: 200px" [src]="boxItem.boxImgUrl">
+      </ion-card>
+    </div>
+
+    <ion-fab>
+      <ion-fab-button data-testid="create-button" (click)="createBox()">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</ion-app>
