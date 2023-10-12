@@ -1,0 +1,6 @@
+.box-input{
+  width: 550px;
+  margin: 20px 0; /* Add margin to separate the input fields */
+  text-align: right;
+  float: right;
+}

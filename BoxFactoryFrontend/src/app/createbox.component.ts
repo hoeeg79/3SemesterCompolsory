@@ -10,6 +10,7 @@ import {firstValueFrom} from "rxjs";
 
 @Component({
   templateUrl: 'createBox.html',
+  styleUrls: ['createBox.component.css'],
 
 })
 
