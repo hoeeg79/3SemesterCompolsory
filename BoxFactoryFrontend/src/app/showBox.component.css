@@ -48,7 +48,7 @@ img {
 
 .delete-button,
 .update-button {
-  background-color: #ff6347; /* Change button colors */
+  background-color: maroon; /* Change button colors */
   color: #fff;
   border: none;
   border-radius: 5px;
