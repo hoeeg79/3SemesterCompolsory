@@ -10,6 +10,7 @@ import {firstValueFrom, observable} from "rxjs";
 
 @Component({
     templateUrl: 'updateBox.html',
+    styleUrls: ['updateBox.component.css']
 
 })
 
