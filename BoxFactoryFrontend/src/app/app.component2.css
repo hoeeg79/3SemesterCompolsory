@@ -12,3 +12,10 @@ ion-card.results {
   /* Add any other styling you want for the cards here */
   margin-bottom: 16px; /* Add margin to create space between rows */
 }
+
+.floating-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
