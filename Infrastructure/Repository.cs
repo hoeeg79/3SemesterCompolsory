@@ -63,7 +63,13 @@ public class Repository
 
     public IEnumerable<Box> searchBox(string searchTerm)
     {
-        var sql = $@"SELECT * FROM boxes.box WHERE
+        var sql = $@"SELECT boxId, 
+                            name, 
+                            size, 
+                            SUBSTRING(description, 1, 50 ) AS description, 
+                            price, 
+                            boxImage AS boxImgUrl, 
+                            material AS materials FROM boxes.box WHERE
                             name ILIKE '%' || @searchTerm || '%'
                             OR size ILIKE '%' || @searchTerm || '%'
                             OR material ILIKE '%' || @searchTerm || '%';";
