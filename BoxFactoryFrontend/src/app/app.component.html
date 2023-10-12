@@ -13,12 +13,21 @@
       </ion-searchbar>
     </ion-item>
     <div class="card-container">
-      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems" (click)="openBox(boxItem.boxId)">
+      <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems"
+                (click)="openBox(boxItem.boxId)">
         <ion-toolbar>
           <ion-title>{{boxItem.name}}</ion-title>
         </ion-toolbar>
-        <ion-card-subtitle>Description: {{boxItem.description}}</ion-card-subtitle>
-        <img style="max-height: 200px" [src]="boxItem.boxImgUrl">
+        <div class="box-full">
+          <div class="box-info">
+            <ion-card-subtitle>price: {{boxItem.price}} kr.</ion-card-subtitle>
+            <ion-card-subtitle>Size: {{boxItem.size}}</ion-card-subtitle>
+            <ion-card-subtitle>Material: {{boxItem.materials}}</ion-card-subtitle>
+          </div>
+          <div class="box-image-container">
+            <img class="box-image" [src]="boxItem.boxImgUrl">
+          </div>
+        </div>
       </ion-card>
     </div>
 
