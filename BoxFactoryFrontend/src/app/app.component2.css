@@ -12,3 +12,36 @@ ion-card.results {
   /* Add any other styling you want for the cards here */
   margin-bottom: 16px; /* Add margin to create space between rows */
 }
+
+.box-full {
+  margin: 4px 0 0 4px;
+}
+
+.box-info {
+  float: left;
+  width: 49%;
+  padding: 4px 0 0 4px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.box-image-container {
+  float: right;
+  padding: 4px 10px 4px 0;
+}
+
+.box-image {
+  max-height: 170px;
+  max-width: 170px;
+  border-radius: 3px;
+}
+
+.floating-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+
+}

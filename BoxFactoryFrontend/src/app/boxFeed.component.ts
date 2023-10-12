@@ -1,25 +1,26 @@
-
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {IonicModule, ModalController, ToastController} from "@ionic/angular";
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {State} from "../state";
 import {firstValueFrom} from "rxjs";
 import {BoxItem} from "../models";
 import {CreateboxComponent} from "./createbox.component";
 import {UpdateboxComponent} from "./updatebox.component";
 import {ShowBoxComponent} from "./showBox.component";
-import {BoxFeedComponent} from "./boxFeed.component";
-import {RouterModule} from "@angular/router";
+import {NgForOf} from "@angular/common";
 
 @Component({
-  selector: 'app-root',
+  selector: 'box-feed',
   standalone: true,
-  imports: [BoxFeedComponent, RouterModule, IonicModule, ReactiveFormsModule],
-  templateUrl: 'app.component.html',
+  templateUrl: 'boxFeed.html',
   styleUrls: ['app.component2.css'],
+  imports: [
+    IonicModule,
+    NgForOf
+  ]
 })
-export class AppComponent implements OnInit{
+export class BoxFeedComponent implements OnInit{
   searchBoxForm: FormGroup;
   searchOnGoing: boolean = false;
   themeToggle = false;
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit{
         this.searchOnGoing = false
       } else if (searchQuery.length >= 4) {
         const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/boxes?searchterm=" +
-        searchQuery));
+          searchQuery));
         this.state.boxItems = result!;
         this.searchOnGoing = true;
       } else if (this.searchOnGoing && searchQuery.length < 4){
