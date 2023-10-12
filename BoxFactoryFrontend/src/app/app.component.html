@@ -1,7 +1,6 @@
 <ion-app>
-  <ion-content style="position: absolute; top: 0;">
     <a routerLink="['/']">
-    <ion-item>
+    <ion-item >
       <ion-toggle (click)="toggleTheme()"></ion-toggle>
       <ion-searchbar
         [formGroup]="searchBoxForm"
@@ -14,6 +13,7 @@
       </ion-searchbar>
     </ion-item>
     </a>
+  <ion-content>
     <router-outlet></router-outlet>
   </ion-content>
 </ion-app>

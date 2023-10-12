@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-content style="position: absolute; top: 0;">
+  <ion-content >
     <div class="card-container">
       <ion-card class="results" [attr.data-testid]="'card_'+boxItem.name" *ngFor="let boxItem of state.boxItems"
                 (click)="openBox(boxItem.boxId)">
