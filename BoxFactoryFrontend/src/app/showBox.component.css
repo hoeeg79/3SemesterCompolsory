@@ -46,12 +46,15 @@ img {
   margin-top: 60px;
 }
 
-.delete-button,
-.update-button {
-  background-color: #ff6347; /* Change button colors */
+.button {
+  background-color: maroon; /* Change button colors */
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 2px 8px;
   font-size: 1rem;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
 }
