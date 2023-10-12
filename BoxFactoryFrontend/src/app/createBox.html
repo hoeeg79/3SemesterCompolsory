@@ -1,43 +1,42 @@
 <ion-list>
   <ion-item>
-    <ion-input autofocus="her" [formControl]="createNewBoxForm.controls.name" data-testid="name-input"
-               label="insert name for box please">
-
-    </ion-input>
-    <div *ngIf="!createNewBoxForm.controls.name.valid" > Name title must be 4 characters or more</div>
-  </ion-item>
-  <ion-item>
-    <ion-input [formControl]="createNewBoxForm.controls.size" data-testid="size-input"
-               label="insert size for the box please">
+    <ion-input class="box-input" autofocus="her" [formControl]="createNewBoxForm.controls.name" data-testid="name-input"
+               label="Name: " placeholder="Name title must be 4 characters or more">
 
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-input [formControl]="createNewBoxForm.controls.description" data-testid="description-input"
-               label="insert box description please">
+    <ion-input class="box-input"[formControl]="createNewBoxForm.controls.size" data-testid="size-input"
+               label="Size: ">
 
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-input [formControl]="createNewBoxForm.controls.boxImgUrl" data-testid="image-url"
-               label="insert cover-image-url for box please">
+    <ion-input class="box-input"[formControl]="createNewBoxForm.controls.description" data-testid="description-input"
+               label="Description: ">
 
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-input [formControl]="createNewBoxForm.controls.price" type="number" data-testid="price-input"
-               label="insert box price please">
+    <ion-input class="box-input" [formControl]="createNewBoxForm.controls.boxImgUrl" data-testid="image-url"
+               label="Image-url: ">
 
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-input [formControl]="createNewBoxForm.controls.materials" data-testid="material-input"
-               label="insert box material please">
+    <ion-input class="box-input" [formControl]="createNewBoxForm.controls.price" type="number" data-testid="price-input"
+               label="Price: ">
 
     </ion-input>
   </ion-item>
   <ion-item>
-    <ion-button [disabled]="createNewBoxForm.invalid" (click)="submit()"
+    <ion-input class="box-input" [formControl]="createNewBoxForm.controls.materials" data-testid="material-input"
+               label="Material: ">
+
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button [disabled]="createNewBoxForm.invalid" (click)="submit()" color="danger"
                 data-testid="submit-button">submit</ion-button>
   </ion-item>
 </ion-list>
