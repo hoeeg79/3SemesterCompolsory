@@ -26,7 +26,7 @@ export class ShowBoxComponent{
 
   async deleteBox(boxId: any) {
     try {
-      await firstValueFrom(this.http.delete("http://localhost:5000/api/deletebox/" + boxId));
+      await firstValueFrom(this.http.delete("https://boxfactoryupload.azurewebsites.net/api/deletebox/" + boxId));
       this.state.boxItems = this.state.boxItems.filter(box => box.boxId != boxId);
     } catch (e) {
       if (e instanceof HttpErrorResponse) {

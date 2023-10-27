@@ -31,7 +31,7 @@ export class UpdateboxComponent implements OnInit{
     async submit() {
         try {
             let dto = this.updateBoxForm.getRawValue();
-            const observable = this.http.put<BoxItem>('http://localhost:5000/api/boxes/' + this.state.currentBox.boxId, dto);
+            const observable = this.http.put<BoxItem>('https://boxfactoryupload.azurewebsites.net/api/boxes/' + this.state.currentBox.boxId, dto);
             const response = await firstValueFrom(observable);
             this.state.boxItems = this.state.boxItems.filter(box => box.boxId != this.state.currentBox.boxId);
             this.state.boxItems.push(response);

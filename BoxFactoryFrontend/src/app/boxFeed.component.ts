@@ -37,7 +37,7 @@ export class BoxFeedComponent implements OnInit{
         this.fetchBoxes();
         this.searchOnGoing = false
       } else if (searchQuery.length >= 4) {
-        const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/boxes?searchterm=" +
+        const result = await firstValueFrom(this.http.get<BoxItem[]>("https://boxfactoryupload.azurewebsites.net/api/boxes?searchterm=" +
           searchQuery));
         this.state.boxItems = result!;
         this.searchOnGoing = true;
@@ -53,14 +53,14 @@ export class BoxFeedComponent implements OnInit{
   }
 
   async fetchBoxes() {
-    const result = await firstValueFrom(this.http.get<BoxItem[]>("http://localhost:5000/api/catalogue"));
+    const result = await firstValueFrom(this.http.get<BoxItem[]>("https://boxfactoryupload.azurewebsites.net/api/catalogue"));
     console.log(result);
     this.state.boxItems = result!;
   }
 
   async deleteBox(boxId: number | undefined) {
     try {
-      await firstValueFrom(this.http.delete("http://localhost:5000/api/deletebox/" + boxId));
+      await firstValueFrom(this.http.delete("https://boxfactoryupload.azurewebsites.net/api/deletebox/" + boxId));
       this.state.boxItems = this.state.boxItems.filter(box => box.boxId != boxId);
     } catch (e) {
       if (e instanceof HttpErrorResponse) {
@@ -88,7 +88,7 @@ export class BoxFeedComponent implements OnInit{
     const modal = await this.modalController.create({
       component: ShowBoxComponent
     });
-    this.state.currentBox = await firstValueFrom(this.http.get<BoxItem>("http://localhost:5000/api/boxes/" + boxId));
+    this.state.currentBox = await firstValueFrom(this.http.get<BoxItem>("https://boxfactoryupload.azurewebsites.net/api/boxes/" + boxId));
     console.log(this.state.currentBox)
     modal.present();
   }
